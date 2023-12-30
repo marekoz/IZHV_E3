@@ -76,9 +76,9 @@ public class Enemy : MonoBehaviour
          */
 
         var nearestPlayer = GameManager.Instance.NearestPlayer(transform.position);
-        var direction = (nearestPlayer.transform.position - transform.position).normalized;
         if (nearestPlayer != null )
         {
+            var direction = (nearestPlayer.transform.position - transform.position).normalized;
             transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
             Vector3 newPosition = transform.position + direction * speed * Time.fixedDeltaTime;
             mRigidBody.MovePosition(newPosition);
